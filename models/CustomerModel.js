@@ -27,8 +27,7 @@ CustomerSchema.pre('save', function (next) {
 
 
 CustomerSchema.static('matchPassword', async function(email, password) {
-  const customer = await this.findOne({ email });
-
+  const customer = await this.findOne({ email:email });
   if (!customer) return null;
 
   const salt = customer.salt;

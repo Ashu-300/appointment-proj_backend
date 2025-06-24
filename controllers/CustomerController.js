@@ -33,6 +33,8 @@ async function loginpage(req, res) {
 
     // Check if customer exists and password matches
     const customer = await Customer.matchPassword(email, password);
+    console.log(customer);
+    
 
     if (!customer) {
       return res.status(401).json({ message: "Invalid email or password" });
