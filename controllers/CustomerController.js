@@ -27,13 +27,12 @@ async function loginpage(req, res) {
 
   try {
     // Validate input
-    if (!email || !password) {
+    if (!email || !password) { 
       return res.status(400).json({ message: "Email and password are required" });
     }
 
     // Check if customer exists and password matches
     const customer = await Customer.matchPassword(email, password);
-    console.log(customer);
     
 
     if (!customer) {
